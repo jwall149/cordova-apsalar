@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+           id="org.apache.cordova.core.ApsalarPlugin"
+      version="0.1.0">
+    <name>cordova-apsalar</name>
+    <description>Appsalar plugins for Apsalar</description>
+
+    <js-module src="www/assets/ApsalarPlugin.js" name="ApsalarPlugin">
+        <clobbers target="window.ApsalarPlugins" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="ApsalarPlugin">
+              <param name="android-package" value="org.apache.cordova.core.ApsalarPlugin"/>
+            </feature>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+          <receiver android:exported="true" android:name="com.apsalar.sdk.ApsalarReceiver">
+                <intent-filter>
+                     <action android:name="com.android.vending.INSTALL_REFERRER"></action>
+                </intent-filter>
+          </receiver>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+          <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+          <uses-permission android:name="android.permission.INTERNET" />
+        </config-file>
+
+        <source-file src="src/android/apsalar-6.2.0/apsalar.jar" target-dir="libs" framework="true" />
+        <source-file src="src/android/ApsalarPlugin.java" target-dir="src/org/apache/cordova/core" />
+    </platform>
+
+    <!-- ios -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="ApsalarPlugin">
+                <param name="ios-package" value="CDVApsalarPlugin" />
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+        <header-file src="src/ios/CDVApsalarPlugin.h" />
+        <source-file src="src/ios/CDVApsalarPlugin.m" />
+        <header-file src="src/ios/apsalar-7.0.1/Apsalar.h" />
+
+        <framework src="libsqlite3.0.dylib" />
+        <framework src="SystemConfiguration.framework" />
+        <framework src="Security.framework" />
+        <framework src="libz.1.1.3.dylib" />
+        <framework src="AdSupport.framework" />
+        <framework src="iAd.framework" />
+        <framework src="src/ios/apsalar-7.0.1/libApsalar.a" custom="true" />
+    </platform>
+
+</plugin>
