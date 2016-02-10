@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
-           id="org.apache.cordova.core.ApsalarPlugin"
+           id="me.tonny.cordova.plugins.apsalar"
       version="0.1.0">
     <name>Cordova Apsalar</name>
     <description>Appsalar plugins for Apsalar</description>
@@ -31,7 +31,7 @@
 
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="ApsalarPlugin">
-              <param name="android-package" value="org.apache.cordova.core.ApsalarPlugin"/>
+              <param name="android-package" value="me.tonny.cordova.plugins.apsalar"/>
             </feature>
         </config-file>
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
@@ -60,10 +60,10 @@
             </feature>
         </config-file>
 
-        <header-file src="src/ios/CDVApsalarPlugin.h" target-dir="apsalar" />
-        <source-file src="src/ios/AppDelegate+apsalar.m" />
-        <source-file src="src/ios/PushPlugin.m" />
+        <header-file src="src/ios/CDVApsalarPlugin.h" target-dir="apsalar"/>
         <source-file src="src/ios/CDVApsalarPlugin.m" target-dir="apsalar"/>
+        <header-file src="src/ios/AppDelegate+apsalar.h" target-dir="apsalar"/>
+        <source-file src="src/ios/AppDelegate+apsalar.m" target-dir="apsalar"/>
         <header-file src="src/ios/apsalar-7.0.1/Apsalar.h" target-dir="apsalar"/>
         <source-file src="src/ios/apsalar-7.0.1/libApsalar.a" target-dir="apsalar" framework="true"/>
 
