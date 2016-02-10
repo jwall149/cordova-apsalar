@@ -43,6 +43,13 @@
      <meta-data android:name="me.tonny.cordova.plugins.apsalar.apsalar_secret" android:value="@string/asl_secret"/>
    </config-file>
 
+   <config-file target="AndroidManifest.xml" parent="/">
+    <manifest package="com.example.android.multidex.myapplication">
+      <application android:name="android.support.multidex.MultiDexApplication">
+      </application>
+    </manifest>
+   </config-file>
+
    <config-file target="AndroidManifest.xml" parent="/manifest">
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
