@@ -4,7 +4,7 @@
 
 ### Install
 
-    meteor add cordova:cordova-apsalar@https://github.com/jwall149/cordova-apsalar.git#b52c143b43349d160852524b5f9f1b4e587e816f
+    meteor add cordova:cordova-apsalar@https://github.com/jwall149/cordova-apsalar.git#4e8beab91de5d6bd069703cb168d06a9e07391df
 
 ### How to use
 
@@ -18,6 +18,7 @@
 - Send event:
 
     cordova.plugins.Apsalar.sendEvent('Start application')
+
     cordova.plugins.Apsalar.sendEvent('Click', {foo: bar});
 
 

@@ -1,4 +1,4 @@
-package org.apache.cordova.core;
+package me.tonny.cordova.plugins.apsalar;
 
 import android.app.Activity;
 
@@ -11,34 +11,18 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 public class ApsalarPlugin extends CordovaPlugin {
-    public static final String ACTION_INITIALIZE = "initialize";
     public static final String ACTIONS_SEND_EVENT = "sendEvent";
 
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-        if (action.equals(ACTION_INITIALIZE)) {
-            this.initialize(args.getString(0), args.getString(1), args.getString(2), callbackContext);
-            return true;
-        }
 
         if (action.equals(ACTIONS_SEND_EVENT)) {
-            this.sendEvent(args.getString(0), args.getString(1), args.getString(2), callbackContext);
+            this.sendEvent(args.getString(0), args.getString(1), callbackContext);
             return true;
         }
 
         return false;
       }
-
-    private void initialize(final String apiKey, final String apiSecret, final String fbAppId, final CallbackContext callbackContext) {
-        final Activity currentActivity = this.cordova.getActivity();
-        cordova.getThreadPool().execute(new Runnable() {
-            public void run() {
-                Apsalar.setFBAppId(fbAppId);
-                Apsalar.startSession(currentActivity, apiKey, apiSecret);
-                callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK, true));
-            }
-        });
-    }
 
     private void sendEvent(final String eventName, final String key, final String value, final CallbackContext callbackContext) {
         cordova.getThreadPool().execute(new Runnable() {

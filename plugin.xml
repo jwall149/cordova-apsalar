@@ -47,7 +47,7 @@
         </config-file>
 
         <source-file src="src/android/apsalar-6.2.0/apsalar.jar" target-dir="libs" framework="true" />
-        <source-file src="src/android/ApsalarPlugin.java" target-dir="src/org/apache/cordova/core" />
+        <source-file src="src/android/ApsalarPlugin.java" target-dir="src/me/tonny/cordova/plugins/apsalar" />
 
     </platform>
 
