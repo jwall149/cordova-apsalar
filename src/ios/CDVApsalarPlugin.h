@@ -3,7 +3,6 @@
 
 @interface CDVApsalarPlugin: CDVPlugin
 
-- (void)initialize: (CDVInvokedUrlCommand*)command;
 - (void)sendEvent: (CDVInvokedUrlCommand*)command;
 
 @end

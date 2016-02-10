@@ -3,8 +3,19 @@
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
            id="org.apache.cordova.core.ApsalarPlugin"
       version="0.1.0">
-    <name>cordova-apsalar</name>
+    <name>Cordova Apsalar</name>
     <description>Appsalar plugins for Apsalar</description>
+
+    <license>MIT</license>
+
+    <preference name="APSALAR_KEY" />
+    <preference name="APSALAR_SECRET" />
+
+    <engines>
+        <!-- Requires > 3.3.* because of the custom Framework tag for iOS [CB-5238] -->
+        <!-- Requires > 3.5.0 because of the custom Framework tag for Android [CB-6698] -->
+        <engine name="cordova" version=">=3.5.0" />
+    </engines>
 
     <js-module src="www/assets/ApsalarPlugin.js" name="ApsalarPlugin">
         <clobbers target="window.ApsalarPlugins" />
@@ -12,6 +23,12 @@
 
     <!-- android -->
     <platform name="android">
+        <source-file src="platforms/android/res/values/apsalar.xml" target-dir="res/values" />
+        <config-file target="res/values/apsalar.xml" parent="/*">
+            <string name="asl_key">$APSALAR_KEY</string>
+            <string name="asl_secret">$APSALAR_SECRET</string>
+        </config-file>
+
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="ApsalarPlugin">
               <param name="android-package" value="org.apache.cordova.core.ApsalarPlugin"/>
@@ -31,6 +48,7 @@
 
         <source-file src="src/android/apsalar-6.2.0/apsalar.jar" target-dir="libs" framework="true" />
         <source-file src="src/android/ApsalarPlugin.java" target-dir="src/org/apache/cordova/core" />
+
     </platform>
 
     <!-- ios -->
@@ -41,10 +59,13 @@
                 <param name="onload" value="true" />
             </feature>
         </config-file>
-        <header-file src="src/ios/CDVApsalarPlugin.h" />
-        <source-file src="src/ios/CDVApsalarPlugin.m" />
-        <header-file src="src/ios/apsalar-7.0.1/Apsalar.h" />
-        <source-file src="src/ios/apsalar-7.0.1/libApsalar.a"/>
+
+        <header-file src="src/ios/CDVApsalarPlugin.h" target-dir="apsalar" />
+        <source-file src="src/ios/AppDelegate+apsalar.m" />
+        <source-file src="src/ios/PushPlugin.m" />
+        <source-file src="src/ios/CDVApsalarPlugin.m" target-dir="apsalar"/>
+        <header-file src="src/ios/apsalar-7.0.1/Apsalar.h" target-dir="apsalar"/>
+        <source-file src="src/ios/apsalar-7.0.1/libApsalar.a" target-dir="apsalar" framework="true"/>
 
         <framework src="libsqlite3.0.dylib" />
         <framework src="SystemConfiguration.framework" />
@@ -52,6 +73,14 @@
         <framework src="libz.1.1.3.dylib" />
         <framework src="AdSupport.framework" />
         <framework src="iAd.framework" />
+
+        <config-file target="*-Info.plist" parent="ApsalarKey">
+            <string>$APSALAR_KEY</string>
+        </config-file>
+
+        <config-file target="*-Info.plist" parent="ApsalarSecret">
+            <string>$APSALAR_SECRET</string>
+        </config-file>
 
         <config-file target="*-Info.plist" parent="NSAppTransportSecurity">
             <dict>
