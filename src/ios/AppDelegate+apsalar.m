@@ -10,8 +10,8 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application {
 
   NSString *apiKey = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"ApsalarKey"];
-  NSString *apiSecret = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"APSALAR_SECRET"];
-  [Apsalar startSession:@"yourAPIKey" withKey:@"yourSecret"];
+  NSString *apiSecret = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"ApsalarSecret"];
+  [Apsalar startSession:apiKey withKey:apiSecret];
 
 }
 
