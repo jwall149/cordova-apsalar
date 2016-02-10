@@ -18,7 +18,7 @@
     </engines>
 
     <js-module src="www/assets/ApsalarPlugin.js" name="ApsalarPlugin">
-        <clobbers target="window.ApsalarPlugins" />
+        <clobbers target="cordova.plugins.Apsalar" />
     </js-module>
 
     <!-- android -->
@@ -62,8 +62,6 @@
 
         <header-file src="src/ios/CDVApsalarPlugin.h" target-dir="apsalar"/>
         <source-file src="src/ios/CDVApsalarPlugin.m" target-dir="apsalar"/>
-        <header-file src="src/ios/AppDelegate+apsalar.h" target-dir="apsalar"/>
-        <source-file src="src/ios/AppDelegate+apsalar.m" target-dir="apsalar"/>
         <header-file src="src/ios/apsalar-7.0.1/Apsalar.h" target-dir="apsalar"/>
         <source-file src="src/ios/apsalar-7.0.1/libApsalar.a" target-dir="apsalar" framework="true"/>
 
