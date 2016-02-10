@@ -1,98 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
-           id="me.tonny.cordova.plugins.apsalar"
-      version="0.1.0">
-    <name>Cordova Apsalar</name>
-    <description>Appsalar plugins for Apsalar</description>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0" id="me.tonny.cordova.plugins.apsalar" version="0.1.0">
+  <name>Cordova Apsalar</name>
+  <description>Appsalar plugins for Apsalar</description>
 
-    <license>MIT</license>
+  <license>MIT</license>
 
-    <preference name="APSALAR_KEY" />
-    <preference name="APSALAR_SECRET" />
+  <preference name="APSALAR_KEY" />
+  <preference name="APSALAR_SECRET" />
 
-    <engines>
-        <!-- Requires > 3.3.* because of the custom Framework tag for iOS [CB-5238] -->
-        <!-- Requires > 3.5.0 because of the custom Framework tag for Android [CB-6698] -->
-        <engine name="cordova" version=">=3.5.0" />
-    </engines>
+  <engines>
+    <!-- Requires > 3.3.* because of the custom Framework tag for iOS [CB-5238] -->
+    <!-- Requires > 3.5.0 because of the custom Framework tag for Android [CB-6698] -->
+    <engine name="cordova" version=">=3.5.0" />
+  </engines>
 
-    <js-module src="www/assets/ApsalarPlugin.js" name="ApsalarPlugin">
-        <clobbers target="cordova.plugins.Apsalar" />
-    </js-module>
+  <js-module src="www/assets/ApsalarPlugin.js" name="ApsalarPlugin">
+    <clobbers target="cordova.plugins.Apsalar" />
+  </js-module>
 
-    <!-- android -->
-    <platform name="android">
-        <source-file src="platforms/android/res/values/apsalar.xml" target-dir="res/values" />
-        <config-file target="res/values/apsalar.xml" parent="/*">
-            <string name="asl_key">$APSALAR_KEY</string>
-            <string name="asl_secret">$APSALAR_SECRET</string>
-        </config-file>
+<!-- android -->
+  <platform name="android">
+    <source-file src="src/android/res/values/apsalar.xml" target-dir="res/values" />
+    <config-file target="res/values/apsalar.xml" parent="/*">
+      <string name="asl_key">$APSALAR_KEY</string>
+      <string name="asl_secret">$APSALAR_SECRET</string>
+    </config-file>
 
-        <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="ApsalarPlugin">
-              <param name="android-package" value="me.tonny.cordova.plugins.apsalar"/>
-            </feature>
-        </config-file>
-        <config-file target="AndroidManifest.xml" parent="/manifest/application">
-          <receiver android:exported="true" android:name="com.apsalar.sdk.ApsalarReceiver">
-                <intent-filter>
-                     <action android:name="com.android.vending.INSTALL_REFERRER"></action>
-                </intent-filter>
-          </receiver>
-        </config-file>
-        <config-file target="AndroidManifest.xml" parent="/manifest">
-          <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-          <uses-permission android:name="android.permission.INTERNET" />
-        </config-file>
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="ApsalarPlugin">
+        <param name="android-package" value="me.tonny.cordova.plugins.apsalar"/>
+      </feature>
+    </config-file>
 
-        <source-file src="src/android/apsalar-6.2.0/apsalar.jar" target-dir="libs" framework="true" />
-        <source-file src="src/android/ApsalarPlugin.java" target-dir="src/me/tonny/cordova/plugins/apsalar" />
+    <config-file target="AndroidManifest.xml" parent="/manifest/application">
+      <receiver android:exported="true" android:name="com.apsalar.sdk.ApsalarReceiver">
+        <intent-filter>
+         <action android:name="com.android.vending.INSTALL_REFERRER"></action>
+       </intent-filter>
+     </receiver>
+     <meta-data android:name="me.tonny.cordova.plugins.apsalar.apsalar_key" android:value="@string/asl_key"/>
+     <meta-data android:name="me.tonny.cordova.plugins.apsalar.apsalar_secret" android:value="@string/asl_secret"/>
+   </config-file>
 
-    </platform>
+   <config-file target="AndroidManifest.xml" parent="/manifest">
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+  </config-file>
 
-    <!-- ios -->
-    <platform name="ios">
-        <config-file target="config.xml" parent="/*">
-            <feature name="ApsalarPlugin">
-                <param name="ios-package" value="CDVApsalarPlugin" />
-                <param name="onload" value="true" />
-            </feature>
-        </config-file>
+  <source-file src="src/android/apsalar-6.2.0/apsalar.jar" target-dir="libs" framework="true" />
+  <source-file src="src/android/ApsalarPlugin.java" target-dir="src/me/tonny/cordova/plugins/apsalar" />
 
-        <header-file src="src/ios/CDVApsalarPlugin.h" target-dir="apsalar"/>
-        <source-file src="src/ios/CDVApsalarPlugin.m" target-dir="apsalar"/>
-        <header-file src="src/ios/apsalar-7.0.1/Apsalar.h" target-dir="apsalar"/>
-        <source-file src="src/ios/apsalar-7.0.1/libApsalar.a" target-dir="apsalar" framework="true"/>
+</platform>
 
-        <framework src="libsqlite3.0.dylib" />
-        <framework src="SystemConfiguration.framework" />
-        <framework src="Security.framework" />
-        <framework src="libz.1.1.3.dylib" />
-        <framework src="AdSupport.framework" />
-        <framework src="iAd.framework" />
+<!-- ios -->
+<platform name="ios">
+    <config-file target="config.xml" parent="/*">
+        <feature name="ApsalarPlugin">
+            <param name="ios-package" value="CDVApsalarPlugin" />
+            <param name="onload" value="true" />
+        </feature>
+    </config-file>
 
-        <config-file target="*-Info.plist" parent="ApsalarKey">
-            <string>$APSALAR_KEY</string>
-        </config-file>
+    <header-file src="src/ios/CDVApsalarPlugin.h" target-dir="apsalar"/>
+    <source-file src="src/ios/CDVApsalarPlugin.m" target-dir="apsalar"/>
+    <header-file src="src/ios/apsalar-7.0.1/Apsalar.h" target-dir="apsalar"/>
+    <source-file src="src/ios/apsalar-7.0.1/libApsalar.a" target-dir="apsalar" framework="true"/>
 
-        <config-file target="*-Info.plist" parent="ApsalarSecret">
-            <string>$APSALAR_SECRET</string>
-        </config-file>
+    <framework src="libsqlite3.0.dylib" />
+    <framework src="SystemConfiguration.framework" />
+    <framework src="Security.framework" />
+    <framework src="libz.1.1.3.dylib" />
+    <framework src="AdSupport.framework" />
+    <framework src="iAd.framework" />
 
-        <config-file target="*-Info.plist" parent="NSAppTransportSecurity">
+    <config-file target="*-Info.plist" parent="ApsalarKey">
+        <string>$APSALAR_KEY</string>
+    </config-file>
+
+    <config-file target="*-Info.plist" parent="ApsalarSecret">
+        <string>$APSALAR_SECRET</string>
+    </config-file>
+
+    <config-file target="*-Info.plist" parent="NSAppTransportSecurity">
+        <dict>
+            <key>NSExceptionDomains</key>
             <dict>
-                <key>NSExceptionDomains</key>
+                <key>e.apsalar.com</key>
                 <dict>
-                    <key>e.apsalar.com</key>
-                    <dict>
-                        <key>NSExceptionAllowsInsecureHTTPLoads</key>
-                        <true/>
-                    </dict>
+                    <key>NSExceptionAllowsInsecureHTTPLoads</key>
+                    <true/>
                 </dict>
             </dict>
-        </config-file>
+        </dict>
+    </config-file>
 
-    </platform>
+</platform>
 
 </plugin>
