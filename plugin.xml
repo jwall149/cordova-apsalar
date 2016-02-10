@@ -44,6 +44,7 @@
         <header-file src="src/ios/CDVApsalarPlugin.h" />
         <source-file src="src/ios/CDVApsalarPlugin.m" />
         <header-file src="src/ios/apsalar-7.0.1/Apsalar.h" />
+        <source-file src="src/ios/apsalar-7.0.1/libApsalar.a"/>
 
         <framework src="libsqlite3.0.dylib" />
         <framework src="SystemConfiguration.framework" />
@@ -51,7 +52,20 @@
         <framework src="libz.1.1.3.dylib" />
         <framework src="AdSupport.framework" />
         <framework src="iAd.framework" />
-        <framework src="src/ios/apsalar-7.0.1/libApsalar.a" custom="true" />
+
+        <config-file target="*-Info.plist" parent="NSAppTransportSecurity">
+            <dict>
+                <key>NSExceptionDomains</key>
+                <dict>
+                    <key>e.apsalar.com</key>
+                    <dict>
+                        <key>NSExceptionAllowsInsecureHTTPLoads</key>
+                        <true/>
+                    </dict>
+                </dict>
+            </dict>
+        </config-file>
+
     </platform>
 
 </plugin>
