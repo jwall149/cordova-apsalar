@@ -29,27 +29,28 @@
 
     <config-file target="res/xml/config.xml" parent="/*">
       <feature name="ApsalarPlugin">
-        <param name="android-package" value="me.tonny.cordova.plugins.apsalar"/>
+        <param name="android-package" value="me.tonny.cordova.plugins.apsalar.ApsalarPlugin"/>
+        <param name="onload" value="true" />
       </feature>
     </config-file>
 
     <config-file target="AndroidManifest.xml" parent="/manifest/application">
       <receiver android:exported="true" android:name="com.apsalar.sdk.ApsalarReceiver">
         <intent-filter>
-         <action android:name="com.android.vending.INSTALL_REFERRER"></action>
-       </intent-filter>
-     </receiver>
-     <meta-data android:name="me.tonny.cordova.plugins.apsalar.apsalar_key" android:value="@string/asl_key"/>
-     <meta-data android:name="me.tonny.cordova.plugins.apsalar.apsalar_secret" android:value="@string/asl_secret"/>
-   </config-file>
+          <action android:name="com.android.vending.INSTALL_REFERRER"></action>
+        </intent-filter>
+      </receiver>
+      <meta-data android:name="me.tonny.cordova.plugins.apsalar.apsalar_key" android:value="@string/asl_key"/>
+      <meta-data android:name="me.tonny.cordova.plugins.apsalar.apsalar_secret" android:value="@string/asl_secret"/>
+    </config-file>
 
-   <config-file target="AndroidManifest.xml" parent="/manifest">
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-  </config-file>
+    <config-file target="AndroidManifest.xml" parent="/manifest">
+      <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+      <uses-permission android:name="android.permission.INTERNET" />
+    </config-file>
 
-  <source-file src="src/android/apsalar-6.2.0/apsalar.jar" target-dir="libs" framework="true" />
-  <source-file src="src/android/ApsalarPlugin.java" target-dir="src/me/tonny/cordova/plugins/apsalar" />
+    <source-file src="src/android/apsalar-6.2.0/apsalar.jar" target-dir="libs" framework="true" />
+    <source-file src="src/android/ApsalarPlugin.java" target-dir="src/me/tonny/cordova/plugins/apsalar" />
 
 </platform>
 

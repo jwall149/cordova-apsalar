@@ -32,10 +32,12 @@ public class ApsalarPlugin extends CordovaPlugin {
 
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-        this.sendEvent(action, (JSONObject) args.get(0), callbackContext);
+        if (this.ACTIONS_SEND_EVENT.equals(action)) {
+            this.sendEvent((String) args.get(0), (JSONObject) args.get(1), callbackContext);
+            return true;
+        }
         return false;
     }
-
 
     private void sendEvent(final String eventName, final JSONObject args, final CallbackContext callbackContext) {
         cordova.getThreadPool().execute(new Runnable() {
