@@ -33,22 +33,28 @@ public class ApsalarPlugin extends CordovaPlugin {
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         if (this.ACTIONS_SEND_EVENT.equals(action)) {
-            this.sendEvent((String) args.get(0), (JSONObject) args.get(1), callbackContext);
+            String eventName = (String) args.get(0);
+            JSONObject eventArgs = null;
+
+            if (args.get(1) instanceof JSONObject) {
+              eventArgs = (JSONObject) args.get(1);
+            }
+
+            this.sendEvent(eventName, eventArgs, callbackContext);
             return true;
         }
         return false;
     }
 
     private void sendEvent(final String eventName, final JSONObject args, final CallbackContext callbackContext) {
-        cordova.getThreadPool().execute(new Runnable() {
+        this.cordova.getThreadPool().execute(new Runnable() {
             public void run() {
                 if (args == null) {
                     Apsalar.event(eventName);
                 } else {
                     Apsalar.eventJSON(eventName, args);
                 }
-
-                callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK, true));
+                callbackContext.success();
             }
         });
     }
