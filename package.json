@@ -1,0 +1,35 @@
+{
+  "name": "cordova-plugin-apsalar",
+  "version": "0.1.0",
+  "description": "Appsalar plugins for Apsalar",
+  "cordova": {
+    "id": "me.tonny.cordova.plugins.apsalar",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jwall149/cordova-apsalar.git"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "cordova-apsalar",
+    "meteor-apsalar"
+  ],
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.5.0"
+    }
+  ],
+  "author": "Tonny Pham",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jwall149/cordova-apsalar/issues"
+  },
+  "homepage": "https://github.com/jwall149/cordova-apsalar#readme"
+}
