@@ -2,13 +2,9 @@
 
 @implementation CDVApsalarPlugin
 
-- (CDVPlugin *)initWithWebView:(UIWebView *)theWebView {
-    NSLog(@"Init Apsalar Session");
-    self = (CDVApsalarPlugin *)[super initWithWebView:theWebView];
-
+- (void)pluginInitialize {
     // Add notification listener for tracking app activity with Apsalar Event
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidBecomeActive) name:UIApplicationDidBecomeActiveNotification object:nil];
-    return self;
 }
 
 - (void)applicationDidBecomeActive {
