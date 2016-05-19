@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-apsalar",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Appsalar plugins for Apsalar",
   "cordova": {
     "id": "me.tonny.cordova.plugins.apsalar",

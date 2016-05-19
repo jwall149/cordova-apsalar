@@ -1,0 +1,105 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/Users/tonny/.nvm/versions/node/v5.0.0/bin/node',
+1 verbose cli   '/Users/tonny/.nvm/versions/node/v5.0.0/bin/npm',
+1 verbose cli   'publish' ]
+2 info using npm@3.3.6
+3 info using node@v5.0.0
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/Users/tonny/dev/cordova-packages/cordova-plugin-apsalar',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /Users/tonny/.npm/cordova-plugin-apsalar/0.2.0/package.tgz not in flight; packing
+9 info lifecycle cordova-plugin-apsalar@0.2.0~prepublish: cordova-plugin-apsalar@0.2.0
+10 silly lifecycle cordova-plugin-apsalar@0.2.0~prepublish: no script for prepublish, continuing
+11 verbose tar pack [ '/Users/tonny/.npm/cordova-plugin-apsalar/0.2.0/package.tgz',
+11 verbose tar pack   '/Users/tonny/dev/cordova-packages/cordova-plugin-apsalar' ]
+12 verbose tarball /Users/tonny/.npm/cordova-plugin-apsalar/0.2.0/package.tgz
+13 verbose folder /Users/tonny/dev/cordova-packages/cordova-plugin-apsalar
+14 verbose addLocalTarball adding from inside cache /Users/tonny/.npm/cordova-plugin-apsalar/0.2.0/package.tgz
+15 silly cache afterAdd cordova-plugin-apsalar@0.2.0
+16 verbose afterAdd /Users/tonny/.npm/cordova-plugin-apsalar/0.2.0/package/package.json not in flight; writing
+17 verbose afterAdd /Users/tonny/.npm/cordova-plugin-apsalar/0.2.0/package/package.json written
+18 silly publish { name: 'cordova-plugin-apsalar',
+18 silly publish   version: '0.2.0',
+18 silly publish   description: 'Appsalar plugins for Apsalar',
+18 silly publish   cordova:
+18 silly publish    { id: 'me.tonny.cordova.plugins.apsalar',
+18 silly publish      platforms: [ 'android', 'ios' ] },
+18 silly publish   repository:
+18 silly publish    { type: 'git',
+18 silly publish      url: 'git+https://github.com/jwall149/cordova-apsalar.git' },
+18 silly publish   keywords:
+18 silly publish    [ 'ecosystem:cordova',
+18 silly publish      'cordova-android',
+18 silly publish      'cordova-ios',
+18 silly publish      'cordova-apsalar',
+18 silly publish      'meteor-apsalar' ],
+18 silly publish   engines: [ { name: 'cordova', version: '>=3.5.0' } ],
+18 silly publish   author: { name: 'Tonny Pham' },
+18 silly publish   license: 'MIT',
+18 silly publish   bugs: { url: 'https://github.com/jwall149/cordova-apsalar/issues' },
+18 silly publish   homepage: 'https://github.com/jwall149/cordova-apsalar#readme',
+18 silly publish   readme: '# Apsalar plugins for cordova\n\n### Meteor\n\n### Install\n\n    meteor add cordova:cordova-apsalar@https://github.com/jwall149/cordova-apsalar.git#4e8beab91de5d6bd069703cb168d06a9e07391df\n\n### How to use\n\n- Add to mobile-config.js\n\n    App.configurePlugin(\'cordova-apsalar\', {\n      APSALAR_KEY: \'Your key\'\n      APSALAR_SECRET: \'Your secret\'\n    })\n\n- Send event:\n\n    cordova.plugins.Apsalar.sendEvent(\'Start application\')\n\n    cordova.plugins.Apsalar.sendEvent(\'Click\', {foo: bar});\n\n\n\n',
+18 silly publish   readmeFilename: 'README.md',
+18 silly publish   gitHead: '3722d2aab3535e364ac164794a0e49db96c88458',
+18 silly publish   _id: 'cordova-plugin-apsalar@0.2.0',
+18 silly publish   scripts: {},
+18 silly publish   _shasum: '937f184af14a55743cc8fde529c5e031bd6aa10c',
+18 silly publish   _from: '.' }
+19 verbose getPublishConfig undefined
+20 silly mapToRegistry name cordova-plugin-apsalar
+21 silly mapToRegistry using default registry
+22 silly mapToRegistry registry https://registry.npmjs.org/
+23 silly mapToRegistry uri https://registry.npmjs.org/cordova-plugin-apsalar
+24 verbose publish registryBase https://registry.npmjs.org/
+25 silly publish uploading /Users/tonny/.npm/cordova-plugin-apsalar/0.2.0/package.tgz
+26 verbose request uri https://registry.npmjs.org/cordova-plugin-apsalar
+27 verbose request sending authorization for write operation
+28 info attempt registry request try #1 at 9:45:44 AM
+29 verbose request using bearer token for auth
+30 verbose request id e67f1c2062ef8da1
+31 http request PUT https://registry.npmjs.org/cordova-plugin-apsalar
+32 http 403 https://registry.npmjs.org/cordova-plugin-apsalar
+33 verbose headers { 'content-type': 'application/json',
+33 verbose headers   'cache-control': 'max-age=300',
+33 verbose headers   'content-length': '95',
+33 verbose headers   'accept-ranges': 'bytes',
+33 verbose headers   date: 'Tue, 17 May 2016 00:45:45 GMT',
+33 verbose headers   via: '1.1 varnish',
+33 verbose headers   connection: 'keep-alive',
+33 verbose headers   'x-served-by': 'cache-nrt6120-NRT',
+33 verbose headers   'x-cache': 'MISS',
+33 verbose headers   'x-cache-hits': '0',
+33 verbose headers   'x-timer': 'S1463445943.022681,VS0,VE2743',
+33 verbose headers   vary: 'Accept-Encoding' }
+34 verbose request invalidating /Users/tonny/.npm/registry.npmjs.org/cordova-plugin-apsalar on PUT
+35 error publish Failed PUT 403
+36 verbose stack Error: "You cannot publish over the previously published version 0.2.0." : cordova-plugin-apsalar
+36 verbose stack     at makeError (/Users/tonny/.nvm/versions/node/v5.0.0/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:264:12)
+36 verbose stack     at CachingRegistryClient.<anonymous> (/Users/tonny/.nvm/versions/node/v5.0.0/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:252:14)
+36 verbose stack     at Request._callback (/Users/tonny/.nvm/versions/node/v5.0.0/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:172:14)
+36 verbose stack     at Request.self.callback (/Users/tonny/.nvm/versions/node/v5.0.0/lib/node_modules/npm/node_modules/request/request.js:198:22)
+36 verbose stack     at emitTwo (events.js:87:13)
+36 verbose stack     at Request.emit (events.js:172:7)
+36 verbose stack     at Request.<anonymous> (/Users/tonny/.nvm/versions/node/v5.0.0/lib/node_modules/npm/node_modules/request/request.js:1063:14)
+36 verbose stack     at emitOne (events.js:82:20)
+36 verbose stack     at Request.emit (events.js:169:7)
+36 verbose stack     at IncomingMessage.<anonymous> (/Users/tonny/.nvm/versions/node/v5.0.0/lib/node_modules/npm/node_modules/request/request.js:1009:12)
+37 verbose statusCode 403
+38 verbose pkgid cordova-plugin-apsalar
+39 verbose cwd /Users/tonny/dev/cordova-packages/cordova-plugin-apsalar
+40 error Darwin 15.4.0
+41 error argv "/Users/tonny/.nvm/versions/node/v5.0.0/bin/node" "/Users/tonny/.nvm/versions/node/v5.0.0/bin/npm" "publish"
+42 error node v5.0.0
+43 error npm  v3.3.6
+44 error code E403
+45 error "You cannot publish over the previously published version 0.2.0." : cordova-plugin-apsalar
+46 error If you need help, you may report this error at:
+46 error     <https://github.com/npm/npm/issues>
+47 verbose exit [ 1, true ]

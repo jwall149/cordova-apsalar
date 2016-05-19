@@ -40,8 +40,6 @@
           <action android:name="com.android.vending.INSTALL_REFERRER"></action>
         </intent-filter>
       </receiver>
-      <meta-data android:name="me.tonny.cordova.plugins.apsalar.apsalar_key" android:value="@string/asl_key"/>
-      <meta-data android:name="me.tonny.cordova.plugins.apsalar.apsalar_secret" android:value="@string/asl_secret"/>
     </config-file>
 
     <config-file target="AndroidManifest.xml" parent="/manifest">
@@ -49,7 +47,7 @@
       <uses-permission android:name="android.permission.INTERNET" />
     </config-file>
 
-    <source-file src="src/android/apsalar-6.2.0/apsalar.jar" target-dir="libs" framework="true" />
+    <source-file src="src/android/apsalar-6.4.0/apsalar.jar" target-dir="libs" framework="true" />
     <source-file src="src/android/ApsalarPlugin.java" target-dir="src/me/tonny/cordova/plugins/apsalar" />
 
 </platform>
@@ -65,8 +63,8 @@
 
     <header-file src="src/ios/CDVApsalarPlugin.h" target-dir="apsalar"/>
     <source-file src="src/ios/CDVApsalarPlugin.m" target-dir="apsalar"/>
-    <header-file src="src/ios/apsalar-7.0.1/Apsalar.h" target-dir="apsalar"/>
-    <source-file src="src/ios/apsalar-7.0.1/libApsalar.a" target-dir="apsalar" framework="true"/>
+    <header-file src="src/ios/apsalar-7.1/Apsalar.h" target-dir="apsalar"/>
+    <source-file src="src/ios/apsalar-7.1/libApsalar.a" target-dir="apsalar" framework="true"/>
 
     <framework src="libsqlite3.0.dylib" />
     <framework src="SystemConfiguration.framework" />
